@@ -1,0 +1,1 @@
+{"version":3,"file":"router-not-found.js","sourceRoot":"","sources":["../../src/middlewares/router-not-found.ts"],"names":[],"mappings":";;AAEA,MAAM,cAAc,GAAG,CAAC,GAAY,EAAE,GAAa,EAAE,IAAkB,EAAE,EAAE;IACzE,OAAO,GAAG,CAAC,MAAM,CAAC,GAAG,CAAC,CAAC,IAAI,CAAC,EAAE,OAAO,EAAE,uBAAuB,EAAE,CAAC,CAAC;AACpE,CAAC,CAAC;AAEF,kBAAe,cAAc,CAAC"}
