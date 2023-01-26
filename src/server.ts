@@ -3,7 +3,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import config from "./config/settings";
-// import mainRouter from "./routes";
+import mainRouter from "./routes";
 import routerNotFound from "./middlewares/router-not-found";
 import errorHandler from "./middlewares/error-handler";
 
@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
   res.send("App is live!");
 });
 
-// app.use("/api/v1", mainRouter);
+app.use("/api/v1", mainRouter);
 
 app.use(routerNotFound);
 app.use(errorHandler);
