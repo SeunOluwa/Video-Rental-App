@@ -5,12 +5,10 @@
   "license": "MIT",
   "scripts": {
     "start": "node dist/server.js",
-    "postinstall": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "create-migration": "npx prisma migrate dev --create-only",
     "dev-migration": "npx prisma migrate dev",
-    "prod-migration": "npx prisma migrate deploy",
-    "expose": "yarn lt --port 4001 --subdomain smileidentitywebhook"
+    "prod-migration": "npx prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^4.9.0",
