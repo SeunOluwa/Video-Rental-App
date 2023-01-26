@@ -12,3 +12,11 @@ export const createAccessToken = (payload: JWTPayload): string => {
   });
   return token;
 };
+
+export const decodeAccessToken = (token: string): JWTPayload => {
+  const { id, email } = jwt.verify(
+    token,
+    config.JWT_ACCESS_SECRET
+  ) as jwt.JwtPayload & JWTPayload;
+  return { id, email };
+};
