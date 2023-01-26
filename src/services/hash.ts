@@ -5,3 +5,11 @@ export const hashContent = async (s: string): Promise<string> => {
   const hashedValue = await bcrypt.hash(s, salt);
   return hashedValue;
 };
+
+export const compareHash = async (
+  s: string,
+  hash: string
+): Promise<boolean> => {
+  const isMatch = await bcrypt.compare(s, hash);
+  return isMatch;
+};
