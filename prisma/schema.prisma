@@ -16,4 +16,50 @@ model User {
   lastName  String
   email     String @unique
   password  String
+  rents     Rent[]
+}
+
+model Video {
+  id           String     @id @default(uuid())
+  title        String
+  type         VideoType
+  maxAge       Int
+  yearReleased Int
+  genre        VideoGenre
+  price        Price?
+  rents        Rent[]
+}
+
+model Price {
+  id            String @id @default(uuid())
+  regular       Int
+  childrenMovie Int
+  newRelease    Int
+  video         Video  @relation(fields: [videoId], references: [id])
+  videoId       String @unique
+}
+
+model Rent {
+  id         String @id @default(uuid())
+  userName   String
+  videoTitle String
+  noOfDays   Int
+  user       User   @relation(fields: [userId], references: [id])
+  userId     String @unique
+  video      Video  @relation(fields: [videoId], references: [id])
+  videoId    String @unique
+}
+
+enum VideoType {
+  regular
+  children_movie
+  new_release
+}
+
+enum VideoGenre {
+  action
+  drama
+  romance
+  comedy
+  horror
 }
