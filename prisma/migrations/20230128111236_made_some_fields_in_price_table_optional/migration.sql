@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Price" ALTER COLUMN "regular" DROP NOT NULL,
+ALTER COLUMN "childrenMovie" DROP NOT NULL,
+ALTER COLUMN "newRelease" DROP NOT NULL;

@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Video" ALTER COLUMN "maxAge" DROP NOT NULL,
+ALTER COLUMN "yearReleased" DROP NOT NULL;
