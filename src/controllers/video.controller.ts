@@ -39,3 +39,9 @@ export const createVideo = async (
 
   return res.status(201).json({ video });
 };
+
+export const getVideos = async (req: Request, res: Response) => {
+  const videos = await prisma.video.findMany();
+
+  return res.status(200).json({ videos });
+};
