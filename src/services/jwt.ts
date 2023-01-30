@@ -6,6 +6,10 @@ export interface JWTPayload {
   email: string;
 }
 
+export interface JWTUser {
+  user: JWTPayload;
+}
+
 export const createAccessToken = (payload: JWTPayload): string => {
   const token: string = jwt.sign(payload, config.JWT_ACCESS_SECRET, {
     expiresIn: "15m",

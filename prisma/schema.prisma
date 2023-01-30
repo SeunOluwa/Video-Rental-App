@@ -45,9 +45,11 @@ model Rent {
   videoTitle String
   noOfDays   Int
   user       User   @relation(fields: [userId], references: [id])
-  userId     String @unique
+  userId     String
   video      Video  @relation(fields: [videoId], references: [id])
-  videoId    String @unique
+  videoId    String
+
+  @@unique([userId, videoId])
 }
 
 enum VideoType {

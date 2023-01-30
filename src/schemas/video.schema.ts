@@ -18,4 +18,11 @@ export const CreateVideoInputSchema = z.object({
   }),
 });
 
+export const RentVideoInputSchema = z.object({
+  body: z.object({
+    noOfDays: z.number().min(1, "No of days is required"),
+  }),
+});
+
 export type CreateVideoInputType = z.infer<typeof CreateVideoInputSchema>;
+export type RentVideoInputType = z.infer<typeof RentVideoInputSchema>;
