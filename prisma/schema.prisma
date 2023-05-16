@@ -11,12 +11,13 @@ datasource db {
 }
 
 model User {
-  id        String @id @default(uuid())
+  id        String   @id @default(uuid())
   firstName String
   lastName  String
-  email     String @unique
+  email     String   @unique
   password  String
   rents     Rent[]
+  wallets   Wallet[]
 }
 
 model Video {
@@ -52,6 +53,16 @@ model Rent {
   @@unique([userId, videoId])
 }
 
+model Wallet {
+  id       String   @id @default(uuid())
+  balance  BigInt   @default(0)
+  currency Currency
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   String
+
+  @@unique([userId, currency])
+}
+
 enum VideoType {
   regular
   children_movie
@@ -64,4 +75,9 @@ enum VideoGenre {
   romance
   comedy
   horror
+}
+
+enum Currency {
+  NGN
+  USD
 }
