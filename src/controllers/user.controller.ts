@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import prisma from "../services/prisma";
 import { CreateUserInputType } from "../schemas/user.schema";
 import { hashContent } from "../services/hash";
+import { JWTPayload } from "../services/jwt";
+import { createAccessToken } from "../services/jwt";
 
 export const createUser = async (
   req: Request<{}, {}, CreateUserInputType["body"]>,
@@ -19,5 +21,11 @@ export const createUser = async (
     },
   });
 
-  return res.status(201).json({ user });
+  const payloadData: JWTPayload = {
+    id: user.id,
+    email: user.email,
+  };
+  const accessToken: string = createAccessToken(payloadData);
+
+  return res.status(201).json({ accessToken });
 };

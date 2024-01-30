@@ -18,7 +18,12 @@ const router = express.Router();
 router.get("/", getVideos);
 router.get("/:id/price", getVideoPrice);
 
-router.post("/upload", validateInput(CreateVideoInputSchema), createVideo);
+router.post(
+  "/upload",
+  auth,
+  validateInput(CreateVideoInputSchema),
+  createVideo
+);
 router.post("/:id/rent", auth, validateInput(RentVideoInputSchema), rentVideo);
 
 export default router;
